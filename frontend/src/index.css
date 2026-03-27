@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  /* ── Shadcn/ui design tokens (dark theme) ─────────────────────── */
+  --color-background: oklch(0.145 0 0);
+  --color-foreground: oklch(0.985 0 0);
+  --color-card: oklch(0.178 0.014 256.8);
+  --color-card-foreground: oklch(0.985 0 0);
+  --color-popover: oklch(0.178 0.014 256.8);
+  --color-popover-foreground: oklch(0.985 0 0);
+  --color-primary: oklch(0.65 0.15 250);
+  --color-primary-foreground: oklch(0.985 0 0);
+  --color-secondary: oklch(0.269 0.015 256.8);
+  --color-secondary-foreground: oklch(0.985 0 0);
+  --color-muted: oklch(0.269 0.015 256.8);
+  --color-muted-foreground: oklch(0.65 0.015 256.8);
+  --color-accent: oklch(0.269 0.015 256.8);
+  --color-accent-foreground: oklch(0.985 0 0);
+  --color-destructive: oklch(0.55 0.2 27);
+  --color-destructive-foreground: oklch(0.985 0 0);
+  --color-border: oklch(0.35 0.015 256.8);
+  --color-input: oklch(0.35 0.015 256.8);
+  --color-ring: oklch(0.55 0.15 250);
+  --radius: 0.5rem;
+
+  /* ── App-specific tokens ──────────────────────────────────────── */
+  --color-pass: #22c55e;
+  --color-warning: #f59e0b;
+  --color-fail: #ef4444;
+  --color-panel: oklch(0.208 0.014 256.8);
+  --color-surface: oklch(0.145 0.014 256.8);
+
+  /* ── Animate-in/out keyframes for shadcn ──────────────────────── */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+}
