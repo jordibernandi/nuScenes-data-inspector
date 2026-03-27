@@ -34,10 +34,10 @@ uvicorn app.main:app --reload --port 8000
 
 ```
 app/
-  main.py              # FastAPI app, CORS, router mounting
+  main.py               # FastAPI app, CORS, router mounting
   config.py             # Environment settings (pydantic-settings)
-  routers/scenes.py    # REST endpoints with Pydantic response_model
-  schemas/responses.py # Pydantic response models
+  routers/scenes.py     # REST endpoints with Pydantic response_model
+  schemas/responses.py  # Pydantic response models
   services/
     nuscenes_service.py # nuScenes devkit integration + quality checks
 requirements.txt
