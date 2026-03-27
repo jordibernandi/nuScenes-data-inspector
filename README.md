@@ -115,6 +115,13 @@ Each frame is inspected with four checks, each returning PASS / WARNING / FAIL:
 
 The overall status is the worst-case across all checks.
 
+### Quality Inspection Examples
+
+| Status | Visual Representation | Description |
+| :--- | :--- | :--- |
+| **PASS** | ![quality-pass](./readme-images/quality-pass-example.png) | **Ideal State:** All 6 cameras and LiDAR are synced within <100ms. |
+| **FAIL** | ![quality-fail](./readme-images/quality-fail-example.png) | **Critical Issue:** Detected missing `CAM_FRONT_LEFT` data and integrity error. |
+
 ## Controls
 
 - **Scene selector**: Click a scene in the sidebar
@@ -132,3 +139,9 @@ The overall status is the worst-case across all checks.
 - **Server State**: TanStack Query
 - **Client State**: Zustand
 - **Styling**: Tailwind CSS v4
+
+## Demo Video
+
+[![Project Demo](https://img.youtube.com/vi/EyeqaImWn3Y/0.jpg)](https://youtu.be/EyeqaImWn3Y)
+
+*Click the image above to watch the nuScenes Multi-Sensor Data Inspector in action.*
