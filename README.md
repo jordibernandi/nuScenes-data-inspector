@@ -2,6 +2,16 @@
 
 A web-based system for exploring, visualizing, and inspecting the [nuScenes](https://www.nuscenes.org/) autonomous driving dataset.
 
+## Demo Video
+
+<div align="center">
+
+[![Project Demo](https://img.youtube.com/vi/EyeqaImWn3Y/0.jpg)](https://youtu.be/EyeqaImWn3Y)
+
+</div>
+
+*Click the image above to watch the nuScenes Multi-Sensor Data Inspector in action.*
+
 ## Architecture
 
 ```
@@ -139,13 +149,3 @@ The overall status is the worst-case across all checks.
 - **Server State**: TanStack Query
 - **Client State**: Zustand
 - **Styling**: Tailwind CSS v4
-
-## Demo Video
-
-<div align="center">
-
-[![Project Demo](https://img.youtube.com/vi/EyeqaImWn3Y/0.jpg)](https://youtu.be/EyeqaImWn3Y)
-
-</div>
-
-*Click the image above to watch the nuScenes Multi-Sensor Data Inspector in action.*
