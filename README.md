@@ -10,7 +10,7 @@ Frontend (React + TypeScript)          Backend (FastAPI)
 │  Zustand (UI state)      │     │  routers/scenes.py       │
 │  TanStack Query (server) │────▶│  services/nuscenes_svc   │──▶ nuScenes dataset
 │  Three.js (3D LiDAR)     │     │  schemas/responses.py    │     (on disk)
-│  Tailwind CSS (styling)  │     │  config.py (settings)     │
+│  Tailwind CSS (styling)  │     │  config.py (settings)    │
 └──────────────────────────┘     └──────────────────────────┘
 ```
 
@@ -24,7 +24,7 @@ Frontend (React + TypeScript)          Backend (FastAPI)
 backend/
   app/
     main.py              # FastAPI app, CORS, router mounting
-    config.py             # Environment settings (pydantic-settings)
+    config.py            # Environment settings (pydantic-settings)
     routers/scenes.py    # REST endpoints with Pydantic response_model
     schemas/responses.py # Pydantic response models
     services/            # nuScenes devkit integration + quality inspection
@@ -119,8 +119,8 @@ The overall status is the worst-case across all checks.
 
 | Status | Visual Representation | Description |
 | :--- | :--- | :--- |
-| **PASS** | ![quality-pass](./readme-images/quality-pass-example.png) | **Ideal State:** All 6 cameras and LiDAR are synced within <100ms. |
-| **FAIL** | ![quality-fail](./readme-images/quality-fail-example.png) | **Critical Issue:** Detected missing `CAM_FRONT_LEFT` data and integrity error. |
+| **PASS** | ![quality-pass](./readme-images/quality-pass-example.png) | **Ideal State:** All cameras and LiDAR are synced within <100ms. |
+| **FAIL** | ![quality-fail](./readme-images/quality-fail-example.png) | **Critical Issue:** Detected missing `CAM_FRONT_LEFT` and `CAM_FRONT_RIGHT` files on disk. |
 
 ## Controls
 
@@ -142,6 +142,10 @@ The overall status is the worst-case across all checks.
 
 ## Demo Video
 
+<div align="center">
+
 [![Project Demo](https://img.youtube.com/vi/EyeqaImWn3Y/0.jpg)](https://youtu.be/EyeqaImWn3Y)
+
+</div>
 
 *Click the image above to watch the nuScenes Multi-Sensor Data Inspector in action.*
