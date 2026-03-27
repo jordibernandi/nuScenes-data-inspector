@@ -6,7 +6,6 @@ interface AppState {
 
   selectScene: (token: string) => void;
   selectSample: (token: string) => void;
-  clearSelection: () => void;
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -17,7 +16,4 @@ export const useAppStore = create<AppState>((set) => ({
     set({ selectedSceneToken: token, selectedSampleToken: null }),
 
   selectSample: (token) => set({ selectedSampleToken: token }),
-
-  clearSelection: () =>
-    set({ selectedSceneToken: null, selectedSampleToken: null }),
 }));

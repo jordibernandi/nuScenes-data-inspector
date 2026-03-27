@@ -41,7 +41,7 @@ frontend/
     components/
       ui/                # shadcn/ui primitives (Button, Badge, Skeleton, etc.)
       Layout.tsx         # Responsive shell with Sheet sidebar (mobile)
-      SceneSelector.tsx  # Scene list with ScrollArea
+      SceneSelector.tsx  # Scene list with Skeleton loading
       FrameNavigator.tsx # Navigation with Slider, Tooltip, Button
       CameraGrid.tsx     # 6-camera grid with Card wrappers
       LidarViewer.tsx    # Three.js point cloud (isolated from UI)

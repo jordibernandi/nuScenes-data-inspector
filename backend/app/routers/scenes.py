@@ -36,15 +36,12 @@ def _get_service() -> NuScenesService:
     )
 
 
-def get_service() -> NuScenesService:
-    return _get_service()
-
 
 # ── Scene endpoints ──────────────────────────────────────────────
 
 
 @router.get("/scenes", response_model=list[SceneResponse])
-def list_scenes(svc: NuScenesService = Depends(get_service)):
+def list_scenes(svc: NuScenesService = Depends(_get_service)):
     """Return all scenes with basic metadata."""
     return svc.list_scenes()
 
@@ -55,7 +52,7 @@ def list_scenes(svc: NuScenesService = Depends(get_service)):
 )
 def list_scene_samples(
     scene_token: str,
-    svc: NuScenesService = Depends(get_service),
+    svc: NuScenesService = Depends(_get_service),
 ):
     """Return ordered list of samples for a scene."""
     try:
@@ -70,7 +67,7 @@ def list_scene_samples(
 @router.get("/samples/{sample_token}", response_model=SampleDetailResponse)
 def get_sample_detail(
     sample_token: str,
-    svc: NuScenesService = Depends(get_service),
+    svc: NuScenesService = Depends(_get_service),
 ):
     """Return full detail for a single sample: sensors, annotations, nav links."""
     try:
@@ -83,7 +80,7 @@ def get_sample_detail(
 def get_camera_image(
     sample_token: str,
     channel: str,
-    svc: NuScenesService = Depends(get_service),
+    svc: NuScenesService = Depends(_get_service),
 ):
     """Serve a camera image file for the given sample and channel."""
     try:
@@ -91,7 +88,7 @@ def get_camera_image(
     except KeyError:
         raise HTTPException(404, f"Camera data not found for {channel}")
     if not os.path.exists(path):
-        raise HTTPException(404, f"Image file missing on disk: {path}")
+        raise HTTPException(500, f"Image file missing on disk: {path}")
     return FileResponse(path, media_type="image/jpeg")
 
 
@@ -99,7 +96,7 @@ def get_camera_image(
 def get_lidar_points(
     sample_token: str,
     max_points: int = Query(40000, ge=1, le=200000),
-    svc: NuScenesService = Depends(get_service),
+    svc: NuScenesService = Depends(_get_service),
 ):
     """Return LiDAR point cloud as JSON. Downsampled to max_points."""
     try:
@@ -117,7 +114,7 @@ def get_lidar_points(
 )
 def inspect_quality(
     sample_token: str,
-    svc: NuScenesService = Depends(get_service),
+    svc: NuScenesService = Depends(_get_service),
 ):
     """Run data quality checks on a sample and return structured result."""
     try:

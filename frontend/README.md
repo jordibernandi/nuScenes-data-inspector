@@ -36,7 +36,7 @@ src/
   components/
     ui/                 # shadcn/ui primitives (auto-generated)
       button.tsx        badge.tsx        skeleton.tsx
-      popover.tsx       scroll-area.tsx  slider.tsx
+      popover.tsx       resizable.tsx    slider.tsx
       tooltip.tsx       card.tsx         sheet.tsx
     Layout.tsx          # Responsive shell (Sheet sidebar on mobile)
     SceneSelector.tsx   # Scene list with ScrollArea + Skeleton loading

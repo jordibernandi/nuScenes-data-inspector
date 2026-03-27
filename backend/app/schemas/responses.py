@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
+from typing import Literal
+
 from pydantic import BaseModel
+
+QualityStatus = Literal["PASS", "WARNING", "FAIL"]
 
 
 # ── Scenes ────────────────────────────────────────────────────────
@@ -67,7 +71,7 @@ class TimestampDeviation(BaseModel):
 class QualityCheckResult(BaseModel):
     name: str
     label: str
-    status: str
+    status: QualityStatus
     detail: str
     # Sensor completeness fields
     present: int | None = None
@@ -79,5 +83,5 @@ class QualityCheckResult(BaseModel):
 
 
 class QualityResponse(BaseModel):
-    status: str
+    status: QualityStatus
     checks: list[QualityCheckResult]

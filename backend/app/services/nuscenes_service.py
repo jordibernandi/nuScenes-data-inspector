@@ -130,6 +130,7 @@ class NuScenesService:
 
         # nuScenes LiDAR: float32 binary with x, y, z, intensity, ring_index
         points = np.fromfile(pcl_path, dtype=np.float32).reshape(-1, 5)
+        total_points_raw = len(points)
 
         # Downsample if needed
         if len(points) > max_points:
@@ -155,7 +156,7 @@ class NuScenesService:
             )
 
         return {
-            "total_points_raw": int(len(np.fromfile(pcl_path, dtype=np.float32)) / 5),
+            "total_points_raw": total_points_raw,
             "points_returned": len(result),
             "bounds": {
                 "x": [round(float(points[:, 0].min()), 2), round(float(points[:, 0].max()), 2)],
